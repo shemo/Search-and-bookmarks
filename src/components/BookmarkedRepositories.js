@@ -9,7 +9,15 @@ const BookmarkedRepositories = () => {
   });
 
   const toggleBookmark = (repository) => {
-    // Logic to toggle bookmark status and update local storage
+    const updatedBookmarks = bookmarkedRepositories.filter(
+      (bookmark) => bookmark.id !== repository.id
+    );
+
+    setBookmarkedRepositories(updatedBookmarks);
+    localStorage.setItem(
+      "bookmarkedRepositories",
+      JSON.stringify(updatedBookmarks)
+    );
   };
 
   return (

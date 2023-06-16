@@ -52,7 +52,7 @@ describe("App", () => {
     await screen.findByText("Repository 2");
 
     expect(axios.get).toHaveBeenCalledWith(
-      "https://api.github.com/search/repositories?q=react"
+      "https://api.github.com/search/repositories?q=react+in:name"
     );
     expect(axios.get).toHaveBeenCalledTimes(1);
   });

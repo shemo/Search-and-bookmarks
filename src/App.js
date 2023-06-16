@@ -17,7 +17,11 @@ const App = () => {
     setLoading(true);
 
     axios
-      .get(`https://api.github.com/search/repositories?q=${searchTerm}`)
+      .get(
+        `https://api.github.com/search/repositories?q=${encodeURIComponent(
+          searchTerm
+        )}+in:name`
+      )
       .then((response) => {
         setSearchResults(response.data.items || []);
       })
