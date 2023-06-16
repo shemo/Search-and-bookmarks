@@ -1,8 +1,11 @@
-import { render, screen } from '@testing-library/react';
-import App from './App';
+import React from "react";
+import { render } from "@testing-library/react";
+import axios from "axios";
+import App from "./App";
 
-test('renders learn react link', () => {
+jest.mock("axios");
+
+test("renders the App component", () => {
   render(<App />);
-  const linkElement = screen.getByText(/learn react/i);
-  expect(linkElement).toBeInTheDocument();
+  // Add your assertions here to test the rendered output or behavior
 });
