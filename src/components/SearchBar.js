@@ -5,8 +5,8 @@ import * as Yup from "yup";
 const SearchBar = ({ onSearch, loading }) => {
   const validationSchema = Yup.object({
     search: Yup.string()
-      .required("Search term is required")
-      .min(3, "Search term must be at least 3 characters"),
+      .required("Repository name is required")
+      .min(3, "Repository name must be at least 3 characters"),
   });
 
   const formik = useFormik({
