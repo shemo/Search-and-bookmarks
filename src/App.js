@@ -6,28 +6,30 @@ import RepositoryList from "./components/RepositoryList";
 import BookmarkedRepositories from "./components/BookmarkedRepositories";
 import axios from "axios";
 import Skeleton from "./components/Skeleton";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
+
 const App = () => {
   const [searchTerm, setSearchTerm] = useState("");
   const [searchResults, setSearchResults] = useState([]);
   const [bookmarkedRepositories, setBookmarkedRepositories] = useState([]);
   const [loading, setLoading] = useState(false);
-
+  const [searchPerformed, setSearchPerformed] = useState(false);
   const handleSearch = (searchTerm) => {
     setSearchTerm(searchTerm);
     setLoading(true);
 
     axios
-      .get(
-        `https://api.github.com/search/repositories?q=${encodeURIComponent(
-          searchTerm
-        )}+in:name`
-      )
+      .get(`https://api.github.com/search/repositories?q=${searchTerm}+in:name`)
       .then((response) => {
         setSearchResults(response.data.items || []);
+        setSearchPerformed(true);
       })
       .catch((error) => {
+        toast.error("Error searching repositories. Please try again.");
         console.error("Error searching repositories:", error);
       })
+
       .finally(() => {
         setLoading(false);
       });
@@ -71,13 +73,14 @@ const App = () => {
             path="/"
             element={
               <>
-                <SearchBar onSearch={handleSearch} />
+                <SearchBar onSearch={handleSearch} loading={loading} />
                 {loading ? (
                   <div className="w-full flex items-center justify-center">
                     <Skeleton />
                   </div>
                 ) : (
                   <RepositoryList
+                    searchPerformed={searchPerformed}
                     repositories={searchResults}
                     onBookmark={handleBookmark}
                     bookmarkedRepositories={bookmarkedRepositories}
@@ -98,6 +101,7 @@ const App = () => {
           />
         </Routes>
       </div>
+      <ToastContainer position="top-right" autoClose={3000} hideProgressBar />
     </Router>
   );
 };
