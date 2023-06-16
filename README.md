@@ -9,8 +9,7 @@ Welcome to the Repository Search and Bookmarking App! This application allows yo
 - [Prerequisites](#prerequisites)
 - [Installation](#installation)
 - [Usage](#usage)
-- [API Key](#api-key)
-- [Contributing](#contributing)
+- [Testing](#testing)
 - [License](#license)
 
 ## Introduction
@@ -64,3 +63,15 @@ To start the development server and run the application, use the following comma
     npm start / yarn start
 
 The application will be accessible at [http://localhost:3000](http://localhost:3000) in your web browser.
+
+## Testing
+
+To run the tests for the application, use the following command:
+
+    npm test / yarn test
+
+This command will execute the test cases using Jest and display the test results in the terminal. Test descriptions along with the test results will be displayed when running the tests in verbose mode using --verbose flag (npm test -- --verbose or yarn test --verbose).
+
+## License
+
+This project is licensed under the MIT License.
