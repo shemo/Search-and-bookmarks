@@ -21,7 +21,7 @@ const RepositoryItem = ({ repository, onBookmark, isBookmarked }) => {
 
       <div className="flex items-center justify-between">
         <div className="flex items-center gap-4">
-          <a href={owner.html_url} target="_blank" noreferer>
+          <a href={owner.html_url} target="_blank" noreferer="true">
             {" "}
             <img
               className="w-10 h-10 rounded-full"
@@ -30,7 +30,7 @@ const RepositoryItem = ({ repository, onBookmark, isBookmarked }) => {
             />
           </a>
           <div className="font-medium dark:text-white">
-            <a href={owner.html_url} target="_blank" noreferer>
+            <a href={owner.html_url} target="_blank" noreferer="true">
               {owner.login}
             </a>
           </div>
