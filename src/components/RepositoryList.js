@@ -3,6 +3,7 @@ import { BoxIcon } from "../assets/icons";
 import RepositoryItem from "./RepositoryItem";
 
 const RepositoryList = ({
+  searchTerm,
   searchPerformed,
   repositories,
   onBookmark,
@@ -35,7 +36,9 @@ const RepositoryList = ({
         <>
           {hasResults ? (
             <>
-              <h2 className="text-2xl font-semibold mb-4">Search Results</h2>
+              <h2 className="text-2xl font-semibold mb-4">
+                Search Results for: "{searchTerm}"
+              </h2>
               <ul className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-8">
                 {currentRepositories.map((repo) => (
                   <RepositoryItem
