@@ -16,7 +16,7 @@ const RepositoryItem = ({ repository, onBookmark, isBookmarked }) => {
 
       <p className="text-gray-700">
         {" "}
-        {description?.substring(0, 30)} {description?.length > 30 && ".."}
+        {description?.substring(0, 50)} {description?.length > 50 && ".."}
       </p>
 
       <div className="flex items-center justify-between">
