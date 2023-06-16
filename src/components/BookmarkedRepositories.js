@@ -21,10 +21,10 @@ const BookmarkedRepositories = () => {
   };
 
   return (
-    <div className="container mx-auto py-8">
+    <div className="container mx-auto p-5">
       <h2 className="text-2xl font-semibold mb-4">Bookmarked Repositories</h2>
       {bookmarkedRepositories.length > 0 ? (
-        <ul className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+        <ul className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-8">
           {bookmarkedRepositories.map((repo) => (
             <RepositoryItem
               key={repo.id}

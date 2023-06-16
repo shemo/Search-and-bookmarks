@@ -1,2 +1,2 @@
-import { MdInbox } from "react-icons/md";
-export const BoxIcon = MdInbox;
+import { FaBoxOpen } from "react-icons/fa";
+export const BoxIcon = FaBoxOpen;

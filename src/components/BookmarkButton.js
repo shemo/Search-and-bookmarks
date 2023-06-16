@@ -5,7 +5,7 @@ const BookmarkButton = ({ onClick, isBookmarked }) => {
     <button
       className={`${
         isBookmarked ? "bg-yellow-400 text-white" : "bg-gray-200 text-gray-800"
-      } flex items-center gap-2 font-semibold p-2 rounded hover:bg-gray-300 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-500`}
+      } absolute top-1 end-1 font-semibold p-2 rounded hover:bg-gray-300 focus:outline-none focus:ring-0 focus:ring-offset-2 focus:ring-gray-500`}
       onClick={onClick}
     >
       <svg

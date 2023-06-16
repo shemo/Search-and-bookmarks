@@ -20,7 +20,7 @@ const SearchBar = ({ onSearch }) => {
   });
 
   return (
-    <form className="mt-4 mb-8 mx-auto max-w-sm" onSubmit={formik.handleSubmit}>
+    <form className="p-5 mx-auto max-w-sm" onSubmit={formik.handleSubmit}>
       <input
         type="text"
         id="search"
@@ -28,16 +28,16 @@ const SearchBar = ({ onSearch }) => {
         value={formik.values.search}
         onChange={formik.handleChange}
         onBlur={formik.handleBlur}
-        className="w-full px-4 py-2 border rounded shadow"
+        className="w-full px-4 py-2 border rounded shadow focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-sky-200"
         placeholder="Search repositories..."
       />
       {formik.touched.search && formik.errors.search && (
-        <div className="text-red-500">{formik.errors.search}</div>
+        <div className="text-red-500 my-2">{formik.errors.search}</div>
       )}
 
       <button
         type="submit"
-        className="mt-2 w-full px-4 py-2 bg-blue-500 text-white rounded hover:bg-blue-600"
+        className="mt-2 w-full px-4 py-2 bg-sky-500 text-white rounded hover:bg-sky-600"
       >
         Search
       </button>

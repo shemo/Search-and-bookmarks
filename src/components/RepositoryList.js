@@ -29,32 +29,35 @@ const RepositoryList = ({
   const searchPerformed = repositories.length > 0 || currentPage !== 1;
 
   return (
-    <div className="container mx-auto py-8">
-      {searchPerformed && (
-        <>
-          {hasResults ? (
-            <>
-              <h2 className="text-2xl font-semibold mb-4">Search Results</h2>
-              <ul className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-4">
-                {currentRepositories.map((repo) => (
-                  <RepositoryItem
-                    key={repo.id}
-                    repository={repo}
-                    onBookmark={onBookmark}
-                    isBookmarked={bookmarkedRepositories.some(
-                      (bookmark) => bookmark.id === repo.id
-                    )}
-                  />
-                ))}
-              </ul>
-            </>
-          ) : (
-            <div className="flex items-center justify-center h-40">
-              <BoxIcon className="text-6xl text-gray-500" />
-            </div>
-          )}
-        </>
-      )}
+    <div className="container mx-auto p-5">
+      {/* {searchPerformed && ( */}
+      <>
+        {hasResults ? (
+          <>
+            <h2 className="text-2xl font-semibold mb-4">Search Results</h2>
+            <ul className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-8">
+              {currentRepositories.map((repo) => (
+                <RepositoryItem
+                  key={repo.id}
+                  repository={repo}
+                  onBookmark={onBookmark}
+                  isBookmarked={bookmarkedRepositories.some(
+                    (bookmark) => bookmark.id === repo.id
+                  )}
+                />
+              ))}
+            </ul>
+          </>
+        ) : (
+          <div className="flex flex-col items-center justify-center h-40">
+            <BoxIcon size={120} className="text-gray-500" />
+            <h4 className="text-sky-800">
+              There is no repositories matching the entered name.
+            </h4>
+          </div>
+        )}
+      </>
+      {/* )} */}
       {hasResults && (
         <div className="flex justify-center mt-8">
           <ul className="flex items-center">
@@ -67,9 +70,9 @@ const RepositoryList = ({
                     key={pageNumber}
                     className={`${
                       currentPage === pageNumber
-                        ? "bg-blue-500 text-white"
+                        ? "bg-sky-500 text-white"
                         : "bg-white text-gray-700"
-                    } py-2 px-4 border border-gray-300 cursor-pointer`}
+                    } py-2 px-4 border border-gray-300 cursor-pointer rounded`}
                     onClick={() => handlePageChange(pageNumber)}
                   >
                     {pageNumber}

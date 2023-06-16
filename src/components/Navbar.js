@@ -4,8 +4,8 @@ import logo from "../assets/images/bloowatch-logo.png";
 const Navbar = () => {
   return (
     <nav className="bg-white shadow-md p-4">
-      <div className="container mx-auto py-4 flex justify-between items-center">
-        <NavLink to="/" className="text-xl text-[#1d659a] font-semibold">
+      <div className="container mx-auto py-4  gap-2 flex flex-col lg:flex-row justify-between items-center">
+        <NavLink to="/" className="text-xl text-sky-800 font-semibold">
           <img src={logo} alt="Logo" className="h-8 w-auto mr-2" />
           Search & Bookmark
         </NavLink>

@@ -9,17 +9,28 @@ const RepositoryItem = ({ repository, onBookmark, isBookmarked }) => {
   };
 
   return (
-    <li className="bg-white rounded p-4 shadow-md">
-      <h3 className="text-xl font-semibold mb-2">{name}</h3>
-      <p className="text-gray-700 mb-2">{description}</p>
-      <div className="flex items-center">
-        <p className="text-gray-600 mr-4">
-          Owner: <span className="font-semibold">{owner.login}</span>
-        </p>
+    <li className="flex flex-col gap-3 bg-white rounded p-4 shadow-md relative">
+      <BookmarkButton onClick={handleBookmark} isBookmarked={isBookmarked} />
+      <h3 className="text-xl font-semibold">{name}</h3>
+      <p className="text-gray-700">
+        {" "}
+        {description?.substring(0, 50)} {description?.length > 50 && ".."}
+      </p>
+
+      <div className="flex items-center justify-between">
+        <div className="flex items-center gap-4">
+          <img
+            className="w-10 h-10 rounded-full"
+            src={owner.avatar_url}
+            alt={owner.login}
+          />
+          <div className="font-medium dark:text-white">
+            <div>{owner.login}</div>
+          </div>
+        </div>
         <p className="text-gray-600 mr-4">
           Stars: <span className="font-semibold">{stargazers_count}</span>
         </p>
-        <BookmarkButton onClick={handleBookmark} isBookmarked={isBookmarked} />
       </div>
     </li>
   );
