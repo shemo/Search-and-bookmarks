@@ -5,14 +5,16 @@ import SearchBar from "./components/SearchBar";
 import RepositoryList from "./components/RepositoryList";
 import BookmarkedRepositories from "./components/BookmarkedRepositories";
 import axios from "axios";
-
+import Skeleton from "./components/Skeleton";
 const App = () => {
   const [searchTerm, setSearchTerm] = useState("");
   const [searchResults, setSearchResults] = useState([]);
   const [bookmarkedRepositories, setBookmarkedRepositories] = useState([]);
+  const [loading, setLoading] = useState(false);
 
   const handleSearch = (searchTerm) => {
     setSearchTerm(searchTerm);
+    setLoading(true);
 
     axios
       .get(`https://api.github.com/search/repositories?q=${searchTerm}`)
@@ -21,6 +23,9 @@ const App = () => {
       })
       .catch((error) => {
         console.error("Error searching repositories:", error);
+      })
+      .finally(() => {
+        setLoading(false);
       });
   };
 
@@ -63,12 +68,18 @@ const App = () => {
             element={
               <>
                 <SearchBar onSearch={handleSearch} />
-                <RepositoryList
-                  repositories={searchResults}
-                  onBookmark={handleBookmark}
-                  bookmarkedRepositories={bookmarkedRepositories}
-                  searchTerm={searchTerm}
-                />
+                {loading ? (
+                  <div className="w-full flex items-center justify-center">
+                    <Skeleton />
+                  </div>
+                ) : (
+                  <RepositoryList
+                    repositories={searchResults}
+                    onBookmark={handleBookmark}
+                    bookmarkedRepositories={bookmarkedRepositories}
+                    searchTerm={searchTerm}
+                  />
+                )}
               </>
             }
           />
