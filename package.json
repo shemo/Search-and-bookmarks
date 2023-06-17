@@ -16,6 +16,9 @@
   },
   "jest": {
     "testEnvironment": "jsdom",
+    "setupFilesAfterEnv": [
+      "@testing-library/jest-dom/extend-expect"
+    ],
     "moduleNameMapper": {
       "\\.(png|jpg|jpeg|gif|svg)$": "<rootDir>/src/fileMock.js",
       "\\.(css|less)$": "identity-obj-proxy"
@@ -60,6 +63,7 @@
     ]
   },
   "devDependencies": {
+    "@babel/plugin-proposal-private-property-in-object": "^7.21.11",
     "@babel/preset-env": "^7.22.5",
     "@babel/preset-react": "^7.22.5",
     "jest": "^29.5.0",

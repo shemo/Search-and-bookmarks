@@ -14,7 +14,7 @@ Welcome to the Repository Search and Bookmarking App! This application allows yo
 
 ## Introduction
 
-The Repository Search and Bookmarking App is a web application built with React. It leverages the GitHub API to search for repositories based on specific keywords and allows users to bookmark their favorite repositories for future reference.
+The Repository Search and Bookmarking App is a web application built with React. It leverages the GitHub API to search for repositories based on name and allows users to bookmark their favorite repositories for future reference.
 
 ## Features
 

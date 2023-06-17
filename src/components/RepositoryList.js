@@ -48,6 +48,7 @@ const RepositoryList = ({
                     isBookmarked={bookmarkedRepositories.some(
                       (bookmark) => bookmark.id === repo.id
                     )}
+                    data-testid={`repository-item-${repo.id}`}
                   />
                 ))}
               </ul>

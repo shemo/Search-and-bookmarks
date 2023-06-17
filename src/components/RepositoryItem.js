@@ -3,7 +3,7 @@ import { StarIcon, ForkIcon } from "../assets/icons";
 import BookmarkButton from "./BookmarkButton";
 
 const RepositoryItem = ({ repository, onBookmark, isBookmarked }) => {
-  const { id, name, owner, description, stargazers_count, forks_count } =
+  const { name, owner, description, stargazers_count, forks_count } =
     repository;
 
   const handleBookmark = () => {
@@ -26,7 +26,7 @@ const RepositoryItem = ({ repository, onBookmark, isBookmarked }) => {
 
       <div className="flex flex-col lg:flex-row  gap-2 items-center justify-between">
         <div className="flex items-center gap-4">
-          <a href={owner.html_url} target="_blank" noreferer="true">
+          <a href={owner.html_url} target="_blank" rel="noreferrer">
             {" "}
             <img
               className="w-10 h-10 rounded-full shrink-0"
@@ -35,7 +35,7 @@ const RepositoryItem = ({ repository, onBookmark, isBookmarked }) => {
             />
           </a>
           <div className="font-medium dark:text-white">
-            <a href={owner.html_url} target="_blank" noreferer="true">
+            <a href={owner.html_url} target="_blank" rel="noreferrer">
               {owner.login?.substring(0, 15)} {owner.login?.length > 15 && ".."}
             </a>
           </div>
@@ -44,13 +44,13 @@ const RepositoryItem = ({ repository, onBookmark, isBookmarked }) => {
           <p className="flex items-center gap-2 text-gray-600">
             <StarIcon size={20} />{" "}
             <span className="font-semibold">
-              {stargazers_count} {stargazers_count == 1 ? "start" : "stars"}
+              {stargazers_count} {stargazers_count === 1 ? "start" : "stars"}
             </span>
           </p>
           <p className="flex items-center gap-2 text-gray-600">
             <ForkIcon size={20} />{" "}
             <span className="font-semibold">
-              {forks_count} {forks_count == 1 ? "fork" : "forks"}
+              {forks_count} {forks_count === 1 ? "fork" : "forks"}
             </span>
           </p>
         </div>
