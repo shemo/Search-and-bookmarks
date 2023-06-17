@@ -1,0 +1,23 @@
+.container {
+  @apply mx-auto p-5;
+}
+
+.title {
+  @apply text-2xl font-semibold mb-4;
+}
+
+.repoList {
+  @apply grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-8;
+}
+
+.emptyStateContainer {
+  @apply flex flex-col items-center justify-center h-40;
+}
+
+.emptyStateIcon {
+  @apply text-gray-500;
+}
+
+.emptyStateText {
+  @apply text-sky-800;
+}

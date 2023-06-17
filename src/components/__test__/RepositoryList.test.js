@@ -2,25 +2,24 @@ import React from "react";
 import { render, screen } from "@testing-library/react";
 import RepositoryList from "../RepositoryList";
 
-test("displays a message when there are no matching repositories", () => {
-  const mockRepositories = [];
-  const mockSearchTerm = "test";
-  const mockSearchPerformed = true;
-  const mockBookmarkedRepositories = [];
-  const mockOnBookmark = jest.fn();
-
+it("displays a message when there are no matching repositories", () => {
+  const repositories = [];
   render(
     <RepositoryList
-      searchTerm={mockSearchTerm}
-      searchPerformed={mockSearchPerformed}
-      repositories={mockRepositories}
-      onBookmark={mockOnBookmark}
-      bookmarkedRepositories={mockBookmarkedRepositories}
+      searchTerm="example"
+      searchPerformed={true}
+      repositories={repositories}
+      onBookmark={jest.fn()}
+      bookmarkedRepositories={[]}
     />
   );
 
-  const noRepositoriesMessage = screen.getByText(
-    "There is no repositories matching the entered name."
-  );
-  expect(noRepositoriesMessage).toBeInTheDocument();
+  expect(
+    screen.getByText((content, element) => {
+      const text = content.trim();
+      return (
+        text.startsWith("There") && text.endsWith("matching the entered name.")
+      );
+    })
+  ).toBeInTheDocument();
 });

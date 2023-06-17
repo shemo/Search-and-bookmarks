@@ -1,0 +1,19 @@
+.navbar {
+  @apply bg-white shadow-md p-4;
+}
+
+.container {
+  @apply mx-auto py-4 gap-2 flex flex-col lg:flex-row justify-between items-center;
+}
+
+.logoLink {
+  @apply text-xl text-sky-800 font-semibold;
+}
+
+.logoImage {
+  @apply h-8 w-auto mr-2;
+}
+
+.navLink {
+  @apply text-gray-600 hover:text-gray-800;
+}

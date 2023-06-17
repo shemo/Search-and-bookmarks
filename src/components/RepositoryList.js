@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { BoxIcon } from "../assets/icons";
 import RepositoryItem from "./RepositoryItem";
-
+import styles from "../assets/styles/RepositoryList.module.css";
 const RepositoryList = ({
   searchTerm,
   searchPerformed,
@@ -31,15 +31,15 @@ const RepositoryList = ({
   // const searchPerformed = repositories.length > 0 || currentPage !== 1;
 
   return (
-    <div className="container mx-auto p-5">
+    <div className={styles.container}>
       {searchPerformed && (
         <>
           {hasResults ? (
             <>
-              <h2 className="text-2xl font-semibold mb-4">
+              <h2 className={styles.searchResults}>
                 Search Results for: "{searchTerm}"
               </h2>
-              <ul className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-8">
+              <ul className={styles.repositoryList}>
                 {currentRepositories.map((repo) => (
                   <RepositoryItem
                     key={repo.id}
@@ -54,17 +54,17 @@ const RepositoryList = ({
               </ul>
             </>
           ) : (
-            <div className="flex flex-col items-center justify-center h-40">
-              <BoxIcon size={120} className="text-gray-500" />
-              <h4 className="text-sky-800">
-                There is no repositories matching the entered name.
+            <div className={styles.noResultsContainer}>
+              <BoxIcon size={120} className={styles.noResultsIcon} />
+              <h4 className={styles.noResultsText}>
+                There are no repositories matching the entered name.
               </h4>
             </div>
           )}
         </>
       )}
       {hasResults && repositories.length > repositoriesPerPage && (
-        <div className="flex justify-center mt-8">
+        <div className={styles.paginationContainer}>
           <ul className="flex items-center">
             {Array.from(
               { length: Math.ceil(repositories.length / repositoriesPerPage) },
@@ -73,11 +73,11 @@ const RepositoryList = ({
                 return (
                   <li
                     key={pageNumber}
-                    className={`${
+                    className={`${styles.pageNumber} ${
                       currentPage === pageNumber
-                        ? "bg-sky-500 text-white"
-                        : "bg-white text-gray-700"
-                    } py-2 px-4 border border-gray-300 cursor-pointer rounded`}
+                        ? styles.activePage
+                        : styles.inactivePage
+                    }`}
                     onClick={() => handlePageChange(pageNumber)}
                   >
                     {pageNumber}

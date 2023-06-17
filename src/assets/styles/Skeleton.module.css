@@ -1,0 +1,31 @@
+.container {
+  @apply mx-auto py-8;
+}
+
+.skeletonItem {
+  @apply p-4 w-full rounded border border-gray-200 shadow md:p-6;
+}
+
+.bar {
+  @apply h-2 bg-gray-100 rounded-full mb-2.5;
+}
+
+.largeBar {
+  @apply h-2.5 bg-gray-100 rounded-full w-48 mb-4;
+}
+
+.icon {
+  @apply w-14 h-14 text-gray-100;
+}
+
+.textContainer {
+  @apply flex items-center mt-4 space-x-3;
+}
+
+.textBar {
+  @apply h-2.5 bg-gray-100 rounded-full w-32 mb-2;
+}
+
+.text {
+  @apply w-48 h-2 bg-gray-100 rounded-full;
+}

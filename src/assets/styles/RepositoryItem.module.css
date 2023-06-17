@@ -1,0 +1,39 @@
+.container {
+  @apply flex flex-col gap-3 bg-white rounded p-4 shadow-md relative;
+}
+
+.title {
+  @apply text-xl font-semibold capitalize break-words pe-8;
+}
+
+.description {
+  @apply text-gray-700 capitalize break-words;
+}
+
+.ownerContainer {
+  @apply flex flex-col lg:flex-row gap-2 items-center justify-between;
+}
+
+.ownerInfo {
+  @apply flex items-center gap-4;
+}
+
+.ownerImage {
+  @apply w-10 h-10 rounded-full shrink-0;
+}
+
+.ownerName {
+  @apply font-medium;
+}
+
+.statsContainer {
+  @apply flex items-center gap-5;
+}
+
+.stat {
+  @apply flex items-center gap-2 text-gray-600;
+}
+
+.statIcon {
+  @apply font-semibold;
+}

@@ -1,0 +1,39 @@
+.container {
+  @apply mx-auto p-5;
+}
+
+.searchResults {
+  @apply text-2xl font-semibold mb-4;
+}
+
+.repositoryList {
+  @apply grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-8;
+}
+
+.noResultsContainer {
+  @apply flex flex-col items-center justify-center h-40;
+}
+
+.noResultsIcon {
+  @apply text-gray-500;
+}
+
+.noResultsText {
+  @apply text-sky-800;
+}
+
+.paginationContainer {
+  @apply flex justify-center mt-8;
+}
+
+.pageNumber {
+  @apply py-2 px-4 border border-gray-300 cursor-pointer rounded;
+}
+
+.activePage {
+  @apply bg-sky-500 text-white;
+}
+
+.inactivePage {
+  @apply bg-white text-gray-700;
+}

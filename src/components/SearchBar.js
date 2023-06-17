@@ -1,7 +1,7 @@
 import React from "react";
 import { useFormik } from "formik";
 import * as Yup from "yup";
-
+import styles from "../assets/styles/SearchBar.module.css";
 const SearchBar = ({ onSearch, loading }) => {
   const validationSchema = Yup.object({
     search: Yup.string()
@@ -20,10 +20,7 @@ const SearchBar = ({ onSearch, loading }) => {
   });
 
   return (
-    <form
-      className="p-5 mx-auto w-full lg:w-1/2"
-      onSubmit={formik.handleSubmit}
-    >
+    <form className={styles.searchForm} onSubmit={formik.handleSubmit}>
       <input
         type="text"
         id="search"
@@ -31,23 +28,19 @@ const SearchBar = ({ onSearch, loading }) => {
         value={formik.values.search}
         onChange={formik.handleChange}
         onBlur={formik.handleBlur}
-        className="w-full px-4 py-2 border rounded shadow focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-sky-200"
+        className={styles.inputField}
         placeholder="Search repositories..."
       />
       {formik.touched.search && formik.errors.search && (
-        <div className="text-red-500 my-2">{formik.errors.search}</div>
+        <div className={styles.errorMessage}>{formik.errors.search}</div>
       )}
 
-      <button
-        type="submit"
-        disabled={loading}
-        className="flex items-center justify-center mt-2 w-full px-4 py-2 bg-sky-500 text-white rounded hover:bg-sky-600"
-      >
+      <button type="submit" disabled={loading} className={styles.searchButton}>
         {loading && (
           <svg
             aria-hidden="true"
             role="status"
-            className="inline w-4 h-4 mr-3 text-white animate-spin"
+            className={styles.loadingSpinner}
             viewBox="0 0 100 101"
             fill="none"
             xmlns="http://www.w3.org/2000/svg"
