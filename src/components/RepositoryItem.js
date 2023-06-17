@@ -1,4 +1,5 @@
 import React from "react";
+import { StarIcon } from "../assets/icons";
 import BookmarkButton from "./BookmarkButton";
 
 const RepositoryItem = ({ repository, onBookmark, isBookmarked }) => {
@@ -12,9 +13,12 @@ const RepositoryItem = ({ repository, onBookmark, isBookmarked }) => {
     <li className="flex flex-col gap-3 bg-white rounded p-4 shadow-md relative">
       <BookmarkButton onClick={handleBookmark} isBookmarked={isBookmarked} />
 
-      <h3 className="text-xl font-semibold capitalize">{name}</h3>
+      <h3 className="text-xl font-semibold capitalize">
+        {" "}
+        {name?.substring(0, 30)} {name?.length > 30 && ".."}
+      </h3>
 
-      <p className="text-gray-700">
+      <p className="text-gray-700 vapitalize">
         {" "}
         {description?.substring(0, 50)} {description?.length > 50 && ".."}
       </p>
@@ -35,8 +39,9 @@ const RepositoryItem = ({ repository, onBookmark, isBookmarked }) => {
             </a>
           </div>
         </div>
-        <p className="text-gray-600 mr-4">
-          Stars: <span className="font-semibold">{stargazers_count}</span>
+        <p className="flex items-center gap-2 text-gray-600">
+          <StarIcon size={20} />{" "}
+          <span className="font-semibold">{stargazers_count}</span>
         </p>
       </div>
     </li>
